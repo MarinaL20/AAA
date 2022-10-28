@@ -1,0 +1,39 @@
+package com.example.calculator
+
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import com.example.calculator.databinding.ActivityMain2Binding
+
+class MainActivity2 : AppCompatActivity() {
+   // private lateinit var binding: ActivityMain2Binding
+    private  lateinit var binding: ActivityMain2Binding
+    override fun onCreate(savedInstanceState: Bundle?) {
+
+        super.onCreate(savedInstanceState)
+        binding = ActivityMain2Binding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        binding.buttonback.setOnClickListener{
+            try {
+                val randomIntent = Intent (this, MainActivity::class.java)
+                startActivity(randomIntent)
+
+            }catch (e:Exception){
+                Log.d("Error", "ERROR: ${e.message}");
+            }
+        }
+
+        val number = intent.extras?.getString("Resalt")
+
+
+        binding.textView3.text = number.toString();
+
+    }
+
+    fun setTextRes(str: String){
+        binding.textView3.append(str);
+
+    }
+}
