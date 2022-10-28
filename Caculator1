@@ -1,0 +1,65 @@
+package com.example.calculator
+
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import com.example.calculator.databinding.ActivityMainBinding
+import net.objecthunter.exp4j.ExpressionBuilder
+
+class MainActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityMainBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        binding.button1.setOnClickListener{setText(binding.editTextNumber2.text.toString()+"+");binding.editTextNumber2.text=null };
+        binding.button2.setOnClickListener{setText(binding.editTextNumber2.text.toString()+"-"); binding.editTextNumber2.text=null};
+        binding.button3.setOnClickListener{setText(binding.editTextNumber2.text.toString()+"*"); binding.editTextNumber2.text=null};
+        binding.button4.setOnClickListener{setText(binding.editTextNumber2.text.toString()+"/"); binding.editTextNumber2.text=null};
+        binding.buttonclear.setOnClickListener{
+            binding.textView.text = ""
+        }
+        //binding.editTextNumber2.setOnClickListener{setText("9")};
+        //var num = binding.editTextNumber2.text.toString();
+        binding.editTextNumber2.setOnClickListener{setText(binding.editTextNumber2.text.toString()); binding.editTextNumber2.text=null};
+        binding.buttonres.setOnClickListener{
+            try {
+                
+                //randomIntent.putExtra(MainActivity2.resal)
+                //перехід на 2 актівіті
+
+                val ex = ExpressionBuilder(binding.textView.text.toString()).build()
+                val resal = ex.evaluate()
+                val resal1 = resal.toString()
+                val londRES = resal.toLong()
+              /*  if(resal == londRES.toDouble())
+                    binding.textView4.text = londRES.toString()
+                else
+                    binding.textView4.text = resal.toString()
+*/
+                val intent = Intent (this, MainActivity2::class.java)
+                intent.putExtra("Resalt", resal1)
+                startActivity(intent)
+
+            }catch (e:Exception){
+               // Log.d("Error", "ERROR: ${e.message}");
+                val intent = Intent (this, MainActivity2::class.java)
+                intent.putExtra("Resalt", "Error")
+                startActivity(intent)
+
+            }
+        }
+    }
+
+    fun setText(str: String){
+        binding.textView.append(str);
+
+    }
+
+
+    //var text = findViewById<EditText>(R.id.editTextNumber2); //поле введення цифр
+    //var plus = findViewById<Button>(R.id.button1);//+
+    //var minus = findViewById<Button>(R.id.button2);//-
+    //var plus2 = findViewById<Button>(R.id.button3);//*
+    //var divis = findViewById<Button>(R.id.button4);//%
+}
