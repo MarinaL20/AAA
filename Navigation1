@@ -1,0 +1,155 @@
+package com.example.navigation
+
+import android.graphics.ImageDecoder
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.View.inflate
+import android.view.ViewGroup
+import android.view.inputmethod.InputBinding
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.appcompat.resources.Compatibility.Api21Impl.inflate
+import androidx.core.content.res.ColorStateListInflaterCompat.inflate
+import androidx.core.content.res.ComplexColorCompat.inflate
+import androidx.core.graphics.drawable.DrawableCompat.inflate
+import androidx.navigation.fragment.findNavController
+import com.example.navigation.databinding.ActivityMainBinding.inflate
+import com.example.navigation.databinding.FragmentBlank1Binding.inflate
+import com.example.navigation.databinding.FragmentBlank1Binding
+import com.example.navigation.databinding.FragmentBlank2Binding.inflate
+
+
+class BlankFragment1 : Fragment() {
+    private lateinit var  binding: FragmentBlank1Binding
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        binding = FragmentBlank1Binding.inflate(inflater, container, false)
+        //return inflater.inflate(R.layout.fragment_blank1, container, false)
+        return binding.root
+    }
+
+    //private  lateinit var binding: InputBinding
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+        val bundle = Bundle()
+        // стаття 1
+         binding.textView2.setOnClickListener{
+             val stata1 = "Найшвидша тварина на Землі"
+             val stata2 = "     У школі багато хто чув, що найбільшою швидкістю серед тварин володіє гепард. Однак, наша планета має мешканців,  які можуть пересуватися у кілька разів швидше, ніж цей представник сімейства котячих."
+             val index2 = "0"
+             bundle.putString("MyArg", stata1)
+             bundle.putString("MyArg0", stata2)
+             bundle.putString("MyArg1", index2)
+             findNavController().navigate(R.id.blankFragment2, bundle)
+         }
+        binding.context1.setOnClickListener{
+            val stata1 = "Найшвидша тварина на Землі"
+            val stata2 = "     У школі багато хто чув, що найбільшою швидкістю серед тварин володіє гепард. Однак, наша планета має мешканців,  які можуть пересуватися у кілька разів швидше, ніж цей представник сімейства котячих."
+            val index2 = "0"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.imageView.setOnClickListener{
+            val stata1 = "Найшвидша тварина на Землі"
+            val stata2 = "     У школі багато хто чув, що найбільшою швидкістю серед тварин володіє гепард. Однак, наша планета має мешканців,  які можуть пересуватися у кілька разів швидше, ніж цей представник сімейства котячих."
+            val index2 = "0"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.button.setOnClickListener{
+            val stata1 = "Найшвидша тварина на Землі"
+            val stata2 = "     У школі багато хто чув, що найбільшою швидкістю серед тварин володіє гепард. Однак, наша планета має мешканців,  які можуть пересуватися у кілька разів швидше, ніж цей представник сімейства котячих."
+            val index2 = "0"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+
+        }
+        //стаття 1 - кінець
+        binding.textView3.setOnClickListener{
+            val stata1 = "Білки об’їдають людей"
+            val stata2 = "     У Чернігові значно збільшилась популяція білок. Аби прогодувати себе та своє потомство руді гризуни переселяються ближче до людських господарств. Там «допомагають» господарям збирати врожай фруктів, ягід та горіхів. Науковці стверджують, що це цілком нормальне явище. Збільшення кількості білок спостерігають кожні вісім або десять років."
+            val index2 = "1"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.context2.setOnClickListener{
+            val stata1 = "Білки об’їдають людей2"
+            val stata2 = "    У Чернігові значно збільшилась популяція білок. Аби прогодувати себе та своє потомство руді гризуни переселяються ближче до людських господарств. Там «допомагають» господарям збирати врожай фруктів, ягід та горіхів. Науковці стверджують, що це цілком нормальне явище. Збільшення кількості білок спостерігають кожні вісім або десять років. "
+            val index2 = "1"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.button2.setOnClickListener{
+            val stata1 = "Білки об’їдають людей"
+            val stata2 = "    У Чернігові значно збільшилась популяція білок. Аби прогодувати себе та своє потомство руді гризуни переселяються ближче до людських господарств. Там «допомагають» господарям збирати врожай фруктів, ягід та горіхів. Науковці стверджують, що це цілком нормальне явище. Збільшення кількості білок спостерігають кожні вісім або десять років. "
+            val index2 = "1"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+
+        }
+        //стаття 2
+        //стаття 3
+        binding.textView4.setOnClickListener{
+            val stata1 = "Симбіоз гуся та крокодила"
+            val stata2 = "    "
+            val index2 = "2"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.context3.setOnClickListener{
+            val stata1 = "Симбіоз гуся та крокодила"
+            val stata2 = " "
+            val index2 = "2"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.imageView2.setOnClickListener{
+            val stata1 = "Симбіоз гуся та крокодила"
+            val stata2 = " "
+            val index2 = "2"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+        }
+        binding.button3.setOnClickListener{
+            val stata1 = "Симбіоз гуся та крокодила"
+            val stata2 = " "
+            val index2 = "2"
+            bundle.putString("MyArg", stata1)
+            bundle.putString("MyArg0", stata2)
+            bundle.putString("MyArg1", index2)
+            findNavController().navigate(R.id.blankFragment2, bundle)
+
+        }
+        //стаття 3 - end
+
+
+    }
+
+}
